@@ -2,20 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Hello(props) {
-  console.log(props);
+
+
+function Lake({ name }) {
   return (
     <div>
-      <h1>Welcome to {props.library}!</h1>
-      <p>{props.message}</p>
-      <p>{props.number} Props Total</p>
+      <h1>Visit {name}!</h1>
     </div>
   )
 }
 
+function SkiResort({ name }) {
+  return (
+    <div>
+      <h1>Visit {name}!</h1>
+    </div>
+  )
+}
+
+function App(props) {
+  if (props.season === "summer") {
+    return <Lake name="Jenny Lake" />
+  } else if (props.season === "winter") {
+    return <SkiResort name="JHMR" />
+  }
+}
+
 
 ReactDOM.render(
-  <Hello library="React" message="Have Fun!" number={3} />,
+  <App season="winter" />,
   document.getElementById('root')
 );
 
